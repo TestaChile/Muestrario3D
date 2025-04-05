@@ -24,15 +24,36 @@
             background: white;
             border-radius: 10px;
             padding: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Sombra más pronunciada al hover */
         }
         .model-card model-viewer {
             width: 100%;
             height: 200px;
+            --poster-color: transparent; /* Elimina fondo gris de carga */
         }
         .model-card h3 {
             margin: 10px 0;
+            color: #333;
+        }
+        .model-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .ar-button {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -41,55 +62,61 @@
     
     <div class="catalog">
         <!-- Modelo 1 -->
-        <div class="model-card">
-            <model-viewer
-                src="GLB_Standqr01.glb"
-                ar
-                ar-modes="scene-viewer quick-look"
-                camera-controls
-                loading="eager"
-                shadow-intensity="1"
-                auto-rotate
-                rotation-per-second="60deg"
-            >
-                <button slot="ar-button">Ver en AR</button>
-            </model-viewer>
-            <h3>Stand QR Pequeño</h3>
-        </div>
+        <a href="https://www.google.com" class="model-link" target="_blank">
+            <div class="model-card">
+                <model-viewer
+                    src="GLB_Standqr01.glb"
+                    alt="Stand QR Pequeño"
+                    auto-rotate
+                    rotation-per-second="30deg"
+                    ar
+                    ar-modes="scene-viewer quick-look"
+                    camera-controls
+                    shadow-intensity="1"
+                >
+                    <button slot="ar-button" class="ar-button">Ver en AR</button>
+                </model-viewer>
+                <h3>Stand QR Pequeño</h3>
+            </div>
+        </a>
         
         <!-- Modelo 2 -->
-        <div class="model-card">
-            <model-viewer
-                src="GLB_Standqr02.glb"
-                ar
-                ar-modes="scene-viewer quick-look"
-                camera-controls
-                loading="eager"
-                shadow-intensity="1"
-                auto-rotate
-                rotation-per-second="60deg"
-            >
-                <button slot="ar-button">Ver en AR</button>
-            </model-viewer>
-            <h3>Stand QR Mediano</h3>
-        </div>
+        <a href="https://www.google.com" class="model-link" target="_blank">
+            <div class="model-card">
+                <model-viewer
+                    src="GLB_Standqr02.glb"
+                    alt="Stand QR Mediano"
+                    auto-rotate
+                    rotation-per-second="30deg"
+                    ar
+                    ar-modes="scene-viewer quick-look"
+                    camera-controls
+                    shadow-intensity="1"
+                >
+                    <button slot="ar-button" class="ar-button">Ver en AR</button>
+                </model-viewer>
+                <h3>Stand QR Mediano</h3>
+            </div>
+        </a>
         
-        <!-- Modelo 3 (y así sucesivamente) -->
-        <div class="model-card">
-            <model-viewer
-                src="GLB_Standqr03.glb"
-                ar
-                ar-modes="scene-viewer quick-look"
-                camera-controls
-                loading="eager"
-                shadow-intensity="1"
-                auto-rotate
-                rotation-per-second="60deg"
-            >
-                <button slot="ar-button">Ver en AR</button>
-            </model-viewer>
-            <h3>Stand QR Grande</h3>
-        </div>
+        <!-- Modelo 3 -->
+        <a href="https://www.google.com" class="model-link" target="_blank">
+            <div class="model-card">
+                <model-viewer
+                    src="GLB_Standqr03.glb"
+                    alt="Stand QR Grande"
+                    auto-rotate
+                    rotation-per-second="30deg"
+                    ar
+                    ar-modes="scene-viewer quick-look"
+                    camera-controls
+                    shadow-intensity="1"
+                >
+                    <button slot="ar-button" class="ar-button">Ver en AR</button>
+                </model-viewer>
+                <h3>Stand QR Grande</h3>
+            </div>
+        </a>
     </div>
 </body>
 </html>
