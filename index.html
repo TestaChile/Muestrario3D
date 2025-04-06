@@ -13,7 +13,41 @@
         h1 {
             text-align: center;
             color: #000;
+            margin-bottom: 10px;
         }
+        .description {
+            text-align: center;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .social-btn {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .social-btn.instagram { background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737); }
+        .social-btn.whatsapp { background: #25D366; }
+        .social-btn.catalog { background: #6e48aa; }
         .catalog {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -24,147 +58,123 @@
             background: white;
             border-radius: 10px;
             padding: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .model-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Sombra más pronunciada al hover */
         }
         .model-card model-viewer {
             width: 100%;
             height: 200px;
-            --poster-color: transparent; /* Elimina fondo gris de carga */
         }
-        .model-card h3 {
-            margin: 10px 0;
+        .model-title {
+            font-weight: bold;
+            margin: 10px 0 5px;
             color: #333;
         }
-        .model-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .ar-button {
-            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .logo-container {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 1000;
-            background: transparent;
-        }
-        .logo-img {
-            width: 80px;
-            height: auto;
-            transition: transform 0.3s ease;
-            background: transparent;
-        }
-        .logo-img:hover {
-            transform: scale(1.05);
-        }
-        .logo-container a {
-            display: inline-block;
-            text-decoration: none;
-            border: none;
+        .model-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-        <!-- Contenedor del logo con enlace -->
-    <div class="logo-container">
-        <a href="https://www.instagram.com/testa.cl/" target="_blank">
-            <img src="Logo01_Color_MEDRES.png" alt="Logo Testa Chile" class="logo-img">
-        </a>
+    <h1>Catálogo de Modelos 3D</h1>
+    
+    <!-- Descripción editable -->
+    <div class="description">
+        Bienvenido a nuestro catálogo interactivo. Explora nuestros modelos en 3D y realidad aumentada. 
+        Haz clic en cualquier modelo para más detalles.
     </div>
     
-    <h1>Catálogo de Modelos 3D</h1>
+    <!-- Botones de redes sociales -->
+    <div class="social-buttons">
+        <button class="social-btn instagram" onclick="window.open('https://google.cl', '_blank')">
+            <span>Instagram</span>
+        </button>
+        <button class="social-btn catalog" onclick="window.open('https://google.cl', '_blank')">
+            <span>Catálogo</span>
+        </button>
+        <button class="social-btn whatsapp" onclick="window.open('https://google.cl', '_blank')">
+            <span>WhatsApp</span>
+        </button>
+    </div>
     
     <div class="catalog">
         <!-- Modelo 1 -->
-        <a href="https://www.google.com" class="model-link" target="_blank">
-            <div class="model-card">
-                <model-viewer
-                    src="GLB_Standqr01.glb"
-                    alt="Stand QR Pequeño"
-                    auto-rotate
-                    rotation-per-second="60deg"
-                    ar
-                    ar-modes="scene-viewer quick-look"
-                    camera-controls
-                    shadow-intensity="1"
-                >
-                    <button slot="ar-button" class="ar-button">Ver en AR</button>
-                </model-viewer>
-                <h3>Stand QR Pequeño</h3>
-            </div>
-        </a>
+        <div class="model-card">
+            <model-viewer
+                src="GLB_Standqr01.glb"
+                alt="Stand QR Pequeño"
+                auto-rotate
+                rotation-per-second="30deg"
+                ar
+                ar-modes="scene-viewer quick-look"
+                camera-controls
+                shadow-intensity="1"
+            >
+                <button slot="ar-button" class="ar-button">Ver en AR</button>
+            </model-viewer>
+            <h3 class="model-title">Stand QR Pequeño</h3>
+            <p class="model-description">
+                <strong>Materiales:</strong> Acrílico de 5mm con base antideslizante. 
+                Ideal para mostradores pequeños.
+            </p>
+            <button class="social-btn" onclick="window.open('https://google.cl', '_blank')" 
+                    style="background: #333; width: 100%;">
+                Más información
+            </button>
+        </div>
         
         <!-- Modelo 2 -->
-        <a href="https://www.google.com" class="model-link" target="_blank">
-            <div class="model-card">
-                <model-viewer
-                    src="GLB_Standqr02.glb"
-                    alt="Stand QR Mediano"
-                    auto-rotate
-                    rotation-per-second="60deg"
-                    ar
-                    ar-modes="scene-viewer quick-look"
-                    camera-controls
-                    shadow-intensity="1"
-                >
-                    <button slot="ar-button" class="ar-button">Ver en AR</button>
-                </model-viewer>
-                <h3>Stand QR Mediano</h3>
-            </div>
-        </a>
+        <div class="model-card">
+            <model-viewer
+                src="GLB_Standqr02.glb"
+                alt="Stand QR Mediano"
+                auto-rotate
+                rotation-per-second="30deg"
+                ar
+                ar-modes="scene-viewer quick-look"
+                camera-controls
+                shadow-intensity="1"
+            >
+                <button slot="ar-button" class="ar-button">Ver en AR</button>
+            </model-viewer>
+            <h3 class="model-title">Stand QR Mediano</h3>
+            <p class="model-description">
+                <strong>Dimensiones:</strong> 20x20x10cm. 
+                Incluye soporte ajustable para tablets.
+            </p>
+            <button class="social-btn" onclick="window.open('https://google.cl', '_blank')" 
+                    style="background: #333; width: 100%;">
+                Más información
+            </button>
+        </div>
         
         <!-- Modelo 3 -->
-        <a href="https://www.google.com" class="model-link" target="_blank">
-            <div class="model-card">
-                <model-viewer
-                    src="GLB_Standqr03.glb"
-                    alt="Stand QR Grande"
-                    auto-rotate
-                    rotation-per-second="60deg"
-                    ar
-                    ar-modes="scene-viewer quick-look"
-                    camera-controls
-                    shadow-intensity="1"
-                >
-                    <button slot="ar-button" class="ar-button">Ver en AR</button>
-                </model-viewer>
-                <h3>Stand QR Grande</h3>
-            </div>
-        </a>
-        
-        <!-- Modelo 4 -->
-        <a href="https://www.google.com" class="model-link" target="_blank">
-            <div class="model-card">
-                <model-viewer
-                    src="GLB_PlantaSuculentaRoja.glb"
-                    alt="Stand QR Grande"
-                    auto-rotate
-                    rotation-per-second="60deg"
-                    ar
-                    ar-modes="scene-viewer quick-look"
-                    camera-controls
-                    shadow-intensity="1"
-                >
-                    <button slot="ar-button" class="ar-button">Ver en AR</button>
-                </model-viewer>
-                <h3>Stand QR Grande</h3>
-            </div>
-        </a>
-        
+        <div class="model-card">
+            <model-viewer
+                src="GLB_Standqr03.glb"
+                alt="Stand QR Grande"
+                auto-rotate
+                rotation-per-second="30deg"
+                ar
+                ar-modes="scene-viewer quick-look"
+                camera-controls
+                shadow-intensity="1"
+            >
+                <button slot="ar-button" class="ar-button">Ver en AR</button>
+            </model-viewer>
+            <h3 class="model-title">Stand QR Grande</h3>
+            <p class="model-description">
+                <strong>Personalizable:</strong> Opciones de color y logo grabado. 
+                Resistente al agua.
+            </p>
+            <button class="social-btn" onclick="window.open('https://google.cl', '_blank')" 
+                    style="background: #333; width: 100%;">
+                Más información
+            </button>
+        </div>
     </div>
 </body>
 </html>
