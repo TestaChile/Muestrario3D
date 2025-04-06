@@ -55,9 +55,37 @@
             margin-top: 10px;
             cursor: pointer;
         }
+        .logo-container {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+            background: transparent;
+        }
+        .logo-img {
+            width: 80px;
+            height: auto;
+            transition: transform 0.3s ease;
+            background: transparent;
+        }
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        .logo-container a {
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+        }
     </style>
 </head>
 <body>
+        <!-- Contenedor del logo con enlace -->
+    <div class="logo-container">
+        <a href="https://www.instagram.com/testa.cl/" target="_blank">
+            <img src="Logo01_Color_MEDRES.png" alt="Logo Testa Chile" class="logo-img">
+        </a>
+    </div>
+    
     <h1>Catálogo de Modelos 3D</h1>
     
     <div class="catalog">
