@@ -79,29 +79,60 @@
             margin-bottom: 10px;
             text-align: left; /* Alineación opcional */
         }
+        .logo-container {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+            background: transparent;
+        }
+        .logo-img {
+            width: 80px;
+            height: auto;
+            transition: transform 0.3s ease;
+            background: transparent;
+        }
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        .logo-container a {
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+        }
     </style>
 </head>
 <body>
+//////////////////////////////////   CONTENDOR DEL LOGO CON ENLACE   //////////////////////////////////
+    <div class="logo-container">
+        <a href="https://www.instagram.com/testa.cl/" target="_blank">
+            <img src="Logo01_Color_MEDRES.png" alt="Logo Testa Chile" class="logo-img">
+        </a>
+    </div>
+//////////////////////////////////   CONTENDOR DEL LOGO CON ENLACE   //////////////////////////////////
+-
+//////////////////////////////////   SECCIÓN TITULO   //////////////////////////////////
     <h1>Catálogo de Modelos 3D</h1>
     
-    <!-- Descripción editable -->
     <div class="description">
         Bienvenido a nuestro Muestrario interactivo. 
         Explora nuestros modelos en 3D en realidad aumentada.
     </div>
-    
-    <!-- Botones de redes sociales (mismo ancho) -->
+//////////////////////////////////   SECCIÓN TITULO  //////////////////////////////////
+
+//////////////////////////////////   BOTONES REDES SOCIALES //////////////////////////////////
     <div class="social-buttons">
-        <button class="social-btn instagram" onclick="window.open('https://google.cl', '_blank')">
+        <button class="social-btn instagram" onclick="window.open('https://www.instagram.com/testa.cl/', '_blank')">
             Instagram
         </button>
         <button class="social-btn catalog" onclick="window.open('https://google.cl', '_blank')">
             Catálogo
         </button>
-        <button class="social-btn whatsapp" onclick="window.open('https://google.cl', '_blank')">
+        <button class="social-btn whatsapp" onclick="window.open('https://wa.me/<number>', '_blank')">
             WhatsApp
         </button>
     </div>
+//////////////////////////////////   BOTONES REDES SOCIALES //////////////////////////////////
     
     <div class="catalog">
         <!-- MODELO 1 -->
@@ -182,7 +213,7 @@
             </model-viewer>
             <h3 class="model-title">Letrero Personalizado</h3>
             <p class="model-description">
-                <strong>Dimensiones: Según logo y preferencia del cliente</strong> 
+                <strong>Medidas: según logo y preferencia del cliente</strong> 
                 Letrero personalizado, base de terciado con logo personalizado en relieve y a color.
             </p>
         </div>
