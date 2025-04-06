@@ -29,7 +29,6 @@
             margin-bottom: 30px;
         }
         .social-btn {
-            background: #000;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -39,7 +38,10 @@
             transition: all 0.3s;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
+            width: 120px; /* Ancho fijo para todos */
+            text-align: center;
         }
         .social-btn:hover {
             transform: translateY(-2px);
@@ -75,6 +77,7 @@
             font-size: 14px;
             line-height: 1.4;
             margin-bottom: 10px;
+            text-align: left; /* Alineación opcional */
         }
     </style>
 </head>
@@ -83,20 +86,19 @@
     
     <!-- Descripción editable -->
     <div class="description">
-        Bienvenido a nuestro catálogo interactivo. Explora nuestros modelos en 3D y realidad aumentada. 
-        Haz clic en cualquier modelo para más detalles.
+        Bienvenido a nuestro catálogo interactivo. Explora nuestros modelos en 3D y realidad aumentada.
     </div>
     
-    <!-- Botones de redes sociales -->
+    <!-- Botones de redes sociales (mismo ancho) -->
     <div class="social-buttons">
         <button class="social-btn instagram" onclick="window.open('https://google.cl', '_blank')">
-            <span>Instagram</span>
+            Instagram
         </button>
         <button class="social-btn catalog" onclick="window.open('https://google.cl', '_blank')">
-            <span>Catálogo</span>
+            Catálogo
         </button>
         <button class="social-btn whatsapp" onclick="window.open('https://google.cl', '_blank')">
-            <span>WhatsApp</span>
+            WhatsApp
         </button>
     </div>
     
@@ -120,10 +122,6 @@
                 <strong>Materiales:</strong> Acrílico de 5mm con base antideslizante. 
                 Ideal para mostradores pequeños.
             </p>
-            <button class="social-btn" onclick="window.open('https://google.cl', '_blank')" 
-                    style="background: #333; width: 100%;">
-                Más información
-            </button>
         </div>
         
         <!-- Modelo 2 -->
@@ -145,10 +143,6 @@
                 <strong>Dimensiones:</strong> 20x20x10cm. 
                 Incluye soporte ajustable para tablets.
             </p>
-            <button class="social-btn" onclick="window.open('https://google.cl', '_blank')" 
-                    style="background: #333; width: 100%;">
-                Más información
-            </button>
         </div>
         
         <!-- Modelo 3 -->
@@ -170,10 +164,6 @@
                 <strong>Personalizable:</strong> Opciones de color y logo grabado. 
                 Resistente al agua.
             </p>
-            <button class="social-btn" onclick="window.open('https://google.cl', '_blank')" 
-                    style="background: #333; width: 100%;">
-                Más información
-            </button>
         </div>
     </div>
 </body>
