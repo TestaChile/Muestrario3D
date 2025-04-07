@@ -35,12 +35,16 @@
         }
         
         /* BOTONES SOCIALES - Versión optimizada */
-        .social-buttons {
+        .social-buttons, .texture-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin: 20px auto;
             max-width: 800px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
         }
         
         .social-btn {
@@ -292,10 +296,10 @@
         <!-- Modelo 2 -->
         <div class="model-card">
             <model-viewer
-                src="GLB_StanDQR_Mediano.glb"
+                src="GLB_StandQR_Mediano.glb"
                 alt="Stand QR Mediano"
                 auto-rotate
-                rotation-per-second="90deg"
+                rotation-per-second="60deg"
                 ar
                 ar-modes="webxr scene-viewer quick-look"
                 camera-controls
