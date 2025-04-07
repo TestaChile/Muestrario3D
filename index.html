@@ -34,11 +34,10 @@
             line-height: 1.5;
         }
         
-        /* BOTONES SOCIALES - Versión optimizada */
-        .social-buttons, .texture-buttons {
+        /* BOTONES SOCIALES */
+        .social-buttons {
             display: flex;
             justify-content: center;
-            flex-wrap: nowrap;
             gap: 15px;
             margin: 20px auto;
             max-width: 800px;
@@ -48,7 +47,7 @@
         .social-btn {
             color: white;
             border: none;
-            padding: 10px;
+            padding: 10px 15px;
             border-radius: 0;
             font-size: 15px;
             cursor: pointer;
@@ -59,7 +58,6 @@
             gap: 8px;
             flex: 1 1 0;
             min-width: 0;
-            max-width: 100%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -80,35 +78,39 @@
             background: #6e48aa; 
         }
 
-        /* Scroll horizontal SOLO en móviles */
-        @media (max-width: 767px) {
-            .social-buttons {
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 10px;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-            }
-            
-            .social-btn {
-                min-width: 110px;
-                padding: 10px 15px;
-            }
-        }
-
-        /* Ajuste extra para pantallas muy angostas */
-        @media (max-width: 400px) {
-            .social-buttons {
-                gap: 10px;
-            }
-            
-            .social-btn {
-                min-width: 100px;
-                font-size: 14px;
-            }
+        /* NUEVO BOTÓN AR (ESTILO MINIMALISTA) */
+        .ar-button {
+            background: white !important;
+            color: #000 !important;
+            border: 2px solid #000 !important;
+            padding: 10px 24px !important;
+            border-radius: 0 !important;
+            font-size: 14px !important;
+            font-family: Arial, sans-serif !important;
+            margin: 10px !important;
+            transition: all 0.3s !important;
+            cursor: pointer !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
-        /* Resto del CSS */
+        .ar-button:hover {
+            background: #4A90E2 !important; /* Azul Deepseek */
+            color: white !important;
+            border-color: #4A90E2 !important;
+        }
+
+        .ar-hint {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #666;
+            font-family: Arial, sans-serif;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        /* CATÁLOGO */
         .catalog {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -135,30 +137,6 @@
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 10px;
-        }
-        
-        .ar-button {
-            background: #FF0000 !important;
-            color: white !important;
-            border: none !important;
-            padding: 12px 24px !important;
-            border-radius: 0 !important;
-            font-size: 16px !important;
-            margin: 10px !important;
-            transition: all 0.3s !important;
-            cursor: pointer !important;
-        }
-        
-        .ar-button:hover {
-            background: #CC0000 !important;
-        }
-        
-        /* Nuevo estilo para indicar orientación AR */
-        .ar-hint {
-            display: block;
-            font-size: 12px;
-            margin-top: 5px;
-            color: #666;
         }
         
         .floating-description {
@@ -192,6 +170,7 @@
             font-size: 18px;
         }
         
+        /* LOGO */
         .logo-container {
             position: fixed;
             top: 18px;
@@ -224,18 +203,20 @@
             text-align: center;
         }
 
-        @media (min-width: 480px) and (max-width: 767px) {
+        /* RESPONSIVE */
+        @media (max-width: 767px) {
+            .social-buttons {
+                overflow-x: auto;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+            }
+            
             .catalog {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .model-card model-viewer {
                 height: 180px;
-            }
-            
-            .floating-description {
-                font-size: 11px;
-                padding: 6px 10px;
             }
         }
 
@@ -246,6 +227,11 @@
             
             .model-card model-viewer {
                 height: 220px;
+            }
+            
+            .social-btn {
+                min-width: 100px;
+                font-size: 14px;
             }
         }
     </style>
@@ -287,7 +273,7 @@
                 src="GLB_Standqr01.glb"
                 alt="Stand QR Pequeño"
                 auto-rotate
-                rotation-per-second="60deg"
+                rotation-per-second="90deg"
                 ar
                 ar-modes="webxr scene-viewer quick-look"
                 camera-controls
@@ -296,7 +282,8 @@
                 xr-environment
             >
                 <button slot="ar-button" class="ar-button">
-                    Ver en AR <span class="ar-hint">(Coloca en una superficie plana)</span>
+                    VER EN REALIDAD AUMENTADA
+                    <span class="ar-hint">(Coloca en una superficie plana)</span>
                 </button>
             </model-viewer>
             <div class="floating-description">
@@ -311,7 +298,7 @@
                 src="GLB_StandQR_Mediano.glb"
                 alt="Stand QR Mediano"
                 auto-rotate
-                rotation-per-second="60deg"
+                rotation-per-second="90deg"
                 ar
                 ar-modes="webxr scene-viewer quick-look"
                 camera-controls
@@ -320,7 +307,8 @@
                 xr-environment
             >
                 <button slot="ar-button" class="ar-button">
-                    Ver en AR <span class="ar-hint">(Coloca en una superficie plana)</span>
+                    VER EN REALIDAD AUMENTADA
+                    <span class="ar-hint">(Coloca en una superficie plana)</span>
                 </button>
             </model-viewer>
             <div class="floating-description">
@@ -333,7 +321,7 @@
         <div class="model-card" data-ar-type="horizontal">
             <model-viewer
                 src="GLB_Standqr03.glb"
-                alt="Stand QR Grande"
+                alt="Exhibidor QR Emprendedores"
                 auto-rotate
                 rotation-per-second="90deg"
                 ar
@@ -344,11 +332,12 @@
                 xr-environment
             >
                 <button slot="ar-button" class="ar-button">
-                    Ver en AR <span class="ar-hint">(Coloca en una superficie plana)</span>
+                    VER EN REALIDAD AUMENTADA
+                    <span class="ar-hint">(Coloca en una superficie plana)</span>
                 </button>
             </model-viewer>
             <div class="floating-description">
-                <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Exhibidor de madera pino con logo personalizado.
+                <strong>Próximamente modelo 3D</strong> ¡Estamos trabajando!
             </div>
             <h3 class="model-title">Exhibidor QR</h3>
         </div>
@@ -357,9 +346,9 @@
         <div class="model-card" data-ar-type="vertical">
             <model-viewer
                 src="GLB_LetreroQR_Personalizado.glb"
-                alt="Letrero Personalizado"
+                alt="Letrero Personalizado 30x30cm"
                 auto-rotate
-                rotation-per-second="60deg"
+                rotation-per-second="90deg"
                 ar
                 ar-modes="webxr scene-viewer quick-look"
                 camera-controls
@@ -368,13 +357,14 @@
                 xr-environment
             >
                 <button slot="ar-button" class="ar-button">
-                    Ver en AR <span class="ar-hint">(Coloca en una pared)</span>
+                    VER EN REALIDAD AUMENTADA
+                    <span class="ar-hint">(Coloca en una pared)</span>
                 </button>
             </model-viewer>
             <div class="floating-description">
-                <strong>Medidas personalizadas</strong> Base de terciado con logo en relieve y a color.
+                <strong>Medidas 30x30cm</strong> Base de terciado con logo en relieve y a color.
             </div>
-            <h3 class="model-title">Letrero Personalizado</h3>
+            <h3 class="model-title">Letrero Personalizado 30x30cm</h3>
         </div>
     </div>
     
@@ -383,19 +373,17 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Configuración específica para iOS
+            // Configuración para iOS
             if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
                 document.querySelectorAll('model-viewer').forEach(viewer => {
                     viewer.arModes = 'quick-look';
                 });
             }
 
-            // Ajustar orientación para modelos verticales
+            // Ajuste de orientación para modelos verticales
             document.querySelectorAll('.model-card[data-ar-type="vertical"] model-viewer').forEach(viewer => {
-                // Rotación inicial para que aparezca "colgado" en AR
                 viewer.orientation = '0 0 1 90deg';
                 
-                // Forzar orientación vertical al iniciar AR
                 viewer.addEventListener('ar-status', (event) => {
                     if (event.detail.status === 'session-started') {
                         viewer.orientation = '0 0 1 90deg';
