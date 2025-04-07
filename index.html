@@ -34,14 +34,14 @@
             line-height: 1.5;
         }
         
-        /* BOTONES SOCIALES AJUSTADOS PARA COINCIDIR CON EL PRIMER CÓDIGO */
+        /* BOTONES SOCIALES IDÉNTICOS AL PRIMER CÓDIGO */
         .social-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 20px auto; /* Mismo margen vertical que el primer código */
+            margin: 20px auto;
             flex-wrap: wrap;
-            max-width: 800px; /* Mismo ancho máximo */
+            max-width: 800px;
         }
         
         .social-btn {
@@ -56,7 +56,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 120px; /* Mismo ancho exacto */
+            width: 120px;
             text-align: center;
         }
         
@@ -90,28 +90,57 @@
             padding: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
+            position: relative; /* Para el model-description */
         }
         
         .model-card model-viewer {
             width: 100%;
             height: 200px;
             border: 1px solid #000;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
             margin-bottom: 10px;
         }
         
+        /* Botón AR con estilo del primer código */
         .ar-button {
             background: #FF0000 !important;
             color: white !important;
             border: none !important;
-            padding: 8px 16px !important;
+            padding: 12px 24px !important;
             border-radius: 0 !important;
-            font-family: 'Consolas', monospace !important;
-            font-size: 14px !important;
-            margin: 10px auto !important;
+            font-size: 16px !important;
+            margin: 10px !important;
+            transition: all 0.3s !important;
+            cursor: pointer !important;
         }
         
         .ar-button:hover {
             background: #CC0000 !important;
+        }
+        
+        /* Descripción flotante como en el primer código */
+        .floating-description {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            max-width: 90%;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .model-card:hover .floating-description {
+            opacity: 1;
         }
         
         .model-title {
@@ -121,31 +150,24 @@
             font-size: 18px;
         }
         
-        .model-description {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.4;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
+        /* Logo con estilo del primer código */
         .logo-container {
             position: fixed;
-            top: 15px;
-            left: 15px;
+            top: 18px;
+            left: 18px;
             z-index: 1000;
             background: transparent;
         }
         
         .logo-img {
-            width: 80px;
+            width: 60px;
             height: auto;
             transition: transform 0.3s ease;
             background: transparent;
         }
         
         .logo-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.20);
         }
         
         .logo-container a {
@@ -155,19 +177,28 @@
         }
         
         .footer {
-            font-size: 12px;
+            font-size: 10px;
             color: #000;
             margin: 30px auto 10px;
             text-align: center;
-            font-family: 'Consolas', monospace;
+        }
+
+        @media (max-width: 768px) {
+            .catalog {
+                grid-template-columns: 1fr;
+            }
+            
+            .model-card model-viewer {
+                height: 250px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Contenedor del logo con enlace -->
+    <!-- Contenedor del logo con enlace - Estilo del primer código -->
     <div class="logo-container">
         <a href="https://www.instagram.com/testa.cl/" target="_blank">
-            <img src="Logo01_Color_MEDRES.png" alt="Logo Testa Chile" class="logo-img">
+            <img src="WEB_LogoTestaChileBW.png" alt="Logo Testa Chile" class="logo-img">
         </a>
     </div>
     
@@ -180,7 +211,7 @@
         Desde dispositivos móviles podrás ver los Modelos 3D en Realidad Aumentada.
     </div>
     
-    <!-- BOTONES SOCIALES (AHORA IDÉNTICOS AL PRIMER CÓDIGO) -->
+    <!-- Botones de redes sociales -->
     <div class="social-buttons">
         <button class="social-btn instagram" onclick="window.open('https://www.instagram.com/testa.cl/', '_blank')">
             Instagram
@@ -210,10 +241,10 @@
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
-            <h3 class="model-title">Stand QR Pequeño</h3>
-            <p class="model-description">
+            <div class="floating-description">
                 <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Soporte acrílico de 3mm de espesor.
-            </p>
+            </div>
+            <h3 class="model-title">Stand QR Pequeño</h3>
         </div>
         
         <!-- Modelo 2 -->
@@ -232,10 +263,10 @@
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
-            <h3 class="model-title">Stand QR Mediano</h3>
-            <p class="model-description">
+            <div class="floating-description">
                 <strong>Medidas: 16cm de alto, 8cm de ancho, 5cm de base</strong> Soporte de acrílico con Logo personalizado.
-            </p>
+            </div>
+            <h3 class="model-title">Stand QR Mediano</h3>
         </div>
         
         <!-- Modelo 3 -->
@@ -254,10 +285,10 @@
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
-            <h3 class="model-title">Exhibidor QR</h3>
-            <p class="model-description">
+            <div class="floating-description">
                 <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Exhibidor de madera pino con logo personalizado.
-            </p>
+            </div>
+            <h3 class="model-title">Exhibidor QR</h3>
         </div>
         
         <!-- Modelo 4 -->
@@ -276,10 +307,10 @@
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
-            <h3 class="model-title">Letrero Personalizado</h3>
-            <p class="model-description">
+            <div class="floating-description">
                 <strong>Medidas personalizadas</strong> Base de terciado con logo en relieve y a color.
-            </p>
+            </div>
+            <h3 class="model-title">Letrero Personalizado</h3>
         </div>
     </div>
     
