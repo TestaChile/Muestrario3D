@@ -36,35 +36,34 @@
         
         /* BOTONES SOCIALES - Versión optimizada */
         .social-buttons, .texture-buttons {
-                display: flex;
-                justify-content: center;
-                flex-wrap: nowrap;
-                gap: 15px;
-                margin: 20px auto;
-                max-width: 800px;
-                padding-bottom: 10px;
-            }
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            padding-bottom: 10px;
+        }
         
-.social-btn {
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 0;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex: 1 1 0;
-    min-width: 0;
-    max-width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
+        .social-btn {
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 0;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         
         .social-btn:hover {
             transform: translateY(-2px);
@@ -88,11 +87,11 @@
                 white-space: nowrap;
                 padding-bottom: 10px;
                 -webkit-overflow-scrolling: touch;
-                justify-content: flex-start; /* Alineación izquierda en móviles */
+                justify-content: flex-start;
             }
             
             .social-btn {
-                min-width: 110px; /* Ligera reducción para móviles */
+                min-width: 110px;
                 padding: 10px 15px;
             }
         }
@@ -109,7 +108,7 @@
             }
         }
         
-        /* Resto del CSS (sin cambios) */
+        /* Resto del CSS */
         .catalog {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -152,6 +151,14 @@
         
         .ar-button:hover {
             background: #CC0000 !important;
+        }
+        
+        /* Nuevo estilo para indicar orientación AR */
+        .ar-hint {
+            display: block;
+            font-size: 12px;
+            margin-top: 5px;
+            color: #666;
         }
         
         .floating-description {
@@ -274,8 +281,8 @@
     </div>
     
     <div class="catalog">
-        <!-- Modelo 1 -->
-        <div class="model-card">
+        <!-- Modelo 1 (Horizontal) -->
+        <div class="model-card" data-ar-type="horizontal">
             <model-viewer
                 src="GLB_Standqr01.glb"
                 alt="Stand QR Pequeño"
@@ -288,7 +295,9 @@
                 interaction-prompt="none"
                 xr-environment
             >
-                <button slot="ar-button" class="ar-button">Ver en AR</button>
+                <button slot="ar-button" class="ar-button">
+                    Ver en AR <span class="ar-hint">(Coloca en una superficie plana)</span>
+                </button>
             </model-viewer>
             <div class="floating-description">
                 <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Soporte acrílico de 3mm de espesor.
@@ -296,8 +305,8 @@
             <h3 class="model-title">Stand QR Pequeño</h3>
         </div>
         
-        <!-- Modelo 2 -->
-        <div class="model-card">
+        <!-- Modelo 2 (Horizontal) -->
+        <div class="model-card" data-ar-type="horizontal">
             <model-viewer
                 src="GLB_StandQR_Mediano.glb"
                 alt="Stand QR Mediano"
@@ -310,7 +319,9 @@
                 interaction-prompt="none"
                 xr-environment
             >
-                <button slot="ar-button" class="ar-button">Ver en AR</button>
+                <button slot="ar-button" class="ar-button">
+                    Ver en AR <span class="ar-hint">(Coloca en una superficie plana)</span>
+                </button>
             </model-viewer>
             <div class="floating-description">
                 <strong>Medidas: 20cm de alto, 8cm de ancho, 5cm de base</strong> Soporte de acrílico con Logo y texto grabado.
@@ -318,8 +329,8 @@
             <h3 class="model-title">Stand QR Mediano</h3>
         </div>
         
-        <!-- Modelo 3 -->
-        <div class="model-card">
+        <!-- Modelo 3 (Horizontal) -->
+        <div class="model-card" data-ar-type="horizontal">
             <model-viewer
                 src="GLB_Standqr03.glb"
                 alt="Stand QR Grande"
@@ -332,7 +343,9 @@
                 interaction-prompt="none"
                 xr-environment
             >
-                <button slot="ar-button" class="ar-button">Ver en AR</button>
+                <button slot="ar-button" class="ar-button">
+                    Ver en AR <span class="ar-hint">(Coloca en una superficie plana)</span>
+                </button>
             </model-viewer>
             <div class="floating-description">
                 <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Exhibidor de madera pino con logo personalizado.
@@ -340,8 +353,8 @@
             <h3 class="model-title">Exhibidor QR</h3>
         </div>
         
-        <!-- Modelo 4 -->
-        <div class="model-card">
+        <!-- Modelo 4 (Vertical) -->
+        <div class="model-card" data-ar-type="vertical">
             <model-viewer
                 src="GLB_LetreroQR_Personalizado.glb"
                 alt="Letrero Personalizado"
@@ -354,7 +367,9 @@
                 interaction-prompt="none"
                 xr-environment
             >
-                <button slot="ar-button" class="ar-button">Ver en AR</button>
+                <button slot="ar-button" class="ar-button">
+                    Ver en AR <span class="ar-hint">(Coloca en una pared)</span>
+                </button>
             </model-viewer>
             <div class="floating-description">
                 <strong>Medidas personalizadas</strong> Base de terciado con logo en relieve y a color.
@@ -374,6 +389,19 @@
                     viewer.arModes = 'quick-look';
                 });
             }
+
+            // Ajustar orientación para modelos verticales
+            document.querySelectorAll('.model-card[data-ar-type="vertical"] model-viewer').forEach(viewer => {
+                // Rotación inicial para que aparezca "colgado" en AR
+                viewer.orientation = '0 0 1 90deg';
+                
+                // Forzar orientación vertical al iniciar AR
+                viewer.addEventListener('ar-status', (event) => {
+                    if (event.detail.status === 'session-started') {
+                        viewer.orientation = '0 0 1 90deg';
+                    }
+                });
+            });
         });
     </script>
 </body>
