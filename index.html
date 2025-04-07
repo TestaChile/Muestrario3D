@@ -7,7 +7,7 @@
     <!-- Versión fija de model-viewer -->
     <script type="module" src="https://unpkg.com/@google/model-viewer@2.1.1/dist/model-viewer.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Fuente Consolas -->
+    <!-- Fuentes -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Consolas&display=swap');
         
@@ -34,7 +34,7 @@
             line-height: 1.5;
         }
         
-        /* BOTONES SOCIALES IDÉNTICOS AL PRIMER CÓDIGO */
+        /* BOTONES SOCIALES */
         .social-buttons {
             display: flex;
             justify-content: center;
@@ -75,6 +75,7 @@
             background: #6e48aa; 
         }
         
+        /* ESTRUCTURA CARDS RESPONSIVE */
         .catalog {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -90,7 +91,7 @@
             padding: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
-            position: relative; /* Para el model-description */
+            position: relative;
         }
         
         .model-card model-viewer {
@@ -103,7 +104,7 @@
             margin-bottom: 10px;
         }
         
-        /* Botón AR con estilo del primer código */
+        /* BOTÓN AR */
         .ar-button {
             background: #FF0000 !important;
             color: white !important;
@@ -120,23 +121,25 @@
             background: #CC0000 !important;
         }
         
-        /* Descripción flotante como en el primer código */
+        /* DESCRIPCIÓN FLOTANTE MEJORADA */
         .floating-description {
             position: absolute;
-            bottom: 30px;
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 12px; /* Tamaño más pequeño */
+            font-family: Arial, sans-serif; /* Fuente más legible */
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
             max-width: 90%;
             text-align: center;
             z-index: 10;
+            line-height: 1.3;
         }
         
         .model-card:hover .floating-description {
@@ -150,7 +153,7 @@
             font-size: 18px;
         }
         
-        /* Logo con estilo del primer código */
+        /* LOGO */
         .logo-container {
             position: fixed;
             top: 18px;
@@ -183,19 +186,35 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
+        /* RESPONSIVE ADAPTADO */
+        @media (min-width: 480px) and (max-width: 767px) {
             .catalog {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr); /* 2 cards por fila en móviles medianos */
             }
             
             .model-card model-viewer {
-                height: 250px;
+                height: 180px;
+            }
+            
+            .floating-description {
+                font-size: 11px; /* Aún más pequeño en móviles */
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 479px) {
+            .catalog {
+                grid-template-columns: 1fr; /* 1 card en móviles pequeños */
+            }
+            
+            .model-card model-viewer {
+                height: 220px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Contenedor del logo con enlace - Estilo del primer código -->
+    <!-- Logo -->
     <div class="logo-container">
         <a href="https://www.instagram.com/testa.cl/" target="_blank">
             <img src="WEB_LogoTestaChileBW.png" alt="Logo Testa Chile" class="logo-img">
