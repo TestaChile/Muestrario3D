@@ -34,19 +34,21 @@
             line-height: 1.5;
         }
         
-        /* BOTONES SOCIALES IDÉNTICOS AL CÓDIGO ANTERIOR */
+        /* BOTONES SOCIALES AJUSTADOS PARA COINCIDIR CON EL PRIMER CÓDIGO */
         .social-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin: 20px auto; /* Mismo margen vertical que el primer código */
+            flex-wrap: wrap;
+            max-width: 800px; /* Mismo ancho máximo */
         }
         
         .social-btn {
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 0; /* Rectangulares */
+            border-radius: 0;
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
@@ -54,7 +56,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 120px; /* Mismo ancho fijo */
+            width: 120px; /* Mismo ancho exacto */
             text-align: center;
         }
         
@@ -93,11 +95,10 @@
         .model-card model-viewer {
             width: 100%;
             height: 200px;
-            border: 1px solid #000; /* Marco negro */
+            border: 1px solid #000;
             margin-bottom: 10px;
         }
         
-        /* Botón AR rojo y rectangular */
         .ar-button {
             background: #FF0000 !important;
             color: white !important;
@@ -153,7 +154,6 @@
             border: none;
         }
         
-        /* Footer estilo Consolas */
         .footer {
             font-size: 10px;
             color: #000;
@@ -180,7 +180,7 @@
         Desde dispositivos móviles podrás ver los Modelos 3D en Realidad Aumentada.
     </div>
     
-    <!-- Botones de redes sociales (IDÉNTICOS a tu versión anterior) -->
+    <!-- BOTONES SOCIALES (AHORA IDÉNTICOS AL PRIMER CÓDIGO) -->
     <div class="social-buttons">
         <button class="social-btn instagram" onclick="window.open('https://www.instagram.com/testa.cl/', '_blank')">
             Instagram
