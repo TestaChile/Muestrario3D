@@ -34,14 +34,17 @@
             line-height: 1.5;
         }
         
-        /* BOTONES SOCIALES */
+        /* BOTONES SOCIALES (actualizado) */
         .social-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin: 20px auto;
-            flex-wrap: wrap;
             max-width: 800px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
         }
         
         .social-btn {
@@ -56,8 +59,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 120px;
-            text-align: center;
+            min-width: 120px;
+            flex-shrink: 0;
         }
         
         .social-btn:hover {
@@ -75,7 +78,7 @@
             background: #6e48aa; 
         }
         
-        /* ESTRUCTURA CARDS RESPONSIVE */
+        /* Resto del CSS (sin cambios) */
         .catalog {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -104,7 +107,6 @@
             margin-bottom: 10px;
         }
         
-        /* BOTÓN AR */
         .ar-button {
             background: #FF0000 !important;
             color: white !important;
@@ -121,7 +123,6 @@
             background: #CC0000 !important;
         }
         
-        /* DESCRIPCIÓN FLOTANTE MEJORADA */
         .floating-description {
             position: absolute;
             bottom: 25px;
@@ -131,8 +132,8 @@
             color: white;
             padding: 8px 12px;
             border-radius: 12px;
-            font-size: 12px; /* Tamaño más pequeño */
-            font-family: Arial, sans-serif; /* Fuente más legible */
+            font-size: 12px;
+            font-family: Arial, sans-serif;
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
@@ -153,7 +154,6 @@
             font-size: 18px;
         }
         
-        /* LOGO */
         .logo-container {
             position: fixed;
             top: 18px;
@@ -186,10 +186,9 @@
             text-align: center;
         }
 
-        /* RESPONSIVE ADAPTADO */
         @media (min-width: 480px) and (max-width: 767px) {
             .catalog {
-                grid-template-columns: repeat(2, 1fr); /* 2 cards por fila en móviles medianos */
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .model-card model-viewer {
@@ -197,14 +196,14 @@
             }
             
             .floating-description {
-                font-size: 11px; /* Aún más pequeño en móviles */
+                font-size: 11px;
                 padding: 6px 10px;
             }
         }
 
         @media (max-width: 479px) {
             .catalog {
-                grid-template-columns: 1fr; /* 1 card en móviles pequeños */
+                grid-template-columns: 1fr;
             }
             
             .model-card model-viewer {
