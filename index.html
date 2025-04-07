@@ -36,32 +36,35 @@
         
         /* BOTONES SOCIALES - Versión optimizada */
         .social-buttons, .texture-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px auto;
-            max-width: 800px;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding-bottom: 10px;
-            -webkit-overflow-scrolling: touch;
-        }
+                display: flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 15px;
+                margin: 20px auto;
+                max-width: 800px;
+                padding-bottom: 10px;
+            }
         
-        .social-btn {
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 0;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 120px;
-            flex-shrink: 0;
-        }
+.social-btn {
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 0;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
         
         .social-btn:hover {
             transform: translateY(-2px);
