@@ -2,37 +2,52 @@
 <html>
 <head>
     <title>Muestrario 3D | Testa Chile</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- Polyfill para navegadores antiguos -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.8.0/webcomponents-loader.js"></script>
+    <!-- Versión fija de model-viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer@2.1.1/dist/model-viewer.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente Consolas -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Consolas&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Consolas', monospace;
             margin: 0;
             padding: 20px;
             background: #f9f9f9;
+            text-align: center;
         }
+        
         h1 {
-            text-align: center;
             color: #000;
-            margin-bottom: 10px;
-        }
-        .description {
-            text-align: center;
-            color: #555;
+            margin: 0 auto 10px;
+            font-size: 30px;
             max-width: 800px;
-            margin: 0 auto 20px;
+        }
+        
+        .description {
+            color: #000;
+            font-size: 20px;
+            margin: 0 auto 25px;
+            max-width: 800px;
             line-height: 1.5;
         }
+        
+        /* Botones sociales rectangulares */
         .social-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin: 0 auto 30px;
+            max-width: 800px;
         }
+        
         .social-btn {
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 30px;
+            border-radius: 0; /* Rectangulares */
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
@@ -40,22 +55,34 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 120px; /* Ancho fijo para todos */
+            width: 120px;
             text-align: center;
         }
+        
         .social-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .social-btn.instagram { background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737); }
-        .social-btn.whatsapp { background: #25D366; }
-        .social-btn.catalog { background: #6e48aa; }
+        
+        .social-btn.instagram { 
+            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737); 
+        }
+        .social-btn.whatsapp { 
+            background: #25D366; 
+        }
+        .social-btn.catalog { 
+            background: #6e48aa; 
+        }
+        
         .catalog {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+        
         .model-card {
             background: white;
             border-radius: 10px;
@@ -63,22 +90,45 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
         }
+        
         .model-card model-viewer {
             width: 100%;
             height: 200px;
+            border: 1px solid #000; /* Marco negro */
+            margin-bottom: 10px;
         }
+        
+        /* Botón AR rojo y rectangular */
+        .ar-button {
+            background: #FF0000 !important;
+            color: white !important;
+            border: none !important;
+            padding: 8px 16px !important;
+            border-radius: 0 !important;
+            font-family: 'Consolas', monospace !important;
+            font-size: 14px !important;
+            margin: 10px auto !important;
+        }
+        
+        .ar-button:hover {
+            background: #CC0000 !important;
+        }
+        
         .model-title {
             font-weight: bold;
             margin: 10px 0 5px;
             color: #333;
+            font-size: 18px;
         }
+        
         .model-description {
             color: #666;
             font-size: 14px;
             line-height: 1.4;
             margin-bottom: 10px;
-            text-align: left; /* Alineación opcional */
+            text-align: center; /* Centrado */
         }
+        
         .logo-container {
             position: fixed;
             top: 15px;
@@ -86,32 +136,42 @@
             z-index: 1000;
             background: transparent;
         }
+        
         .logo-img {
             width: 80px;
             height: auto;
             transition: transform 0.3s ease;
             background: transparent;
         }
+        
         .logo-img:hover {
             transform: scale(1.05);
         }
+        
         .logo-container a {
             display: inline-block;
             text-decoration: none;
             border: none;
         }
+        
+        /* Footer estilo Consolas */
+        .footer {
+            font-size: 10px;
+            color: #000;
+            margin: 30px auto 10px;
+            text-align: center;
+            font-family: 'Consolas', monospace;
+        }
     </style>
 </head>
 <body>
-<!--//////////////////////////////////   CONTENDOR DEL LOGO CON ENLACE   //////////////////////////////////-->
+    <!-- Contenedor del logo con enlace -->
     <div class="logo-container">
         <a href="https://www.instagram.com/testa.cl/" target="_blank">
             <img src="Logo01_Color_MEDRES.png" alt="Logo Testa Chile" class="logo-img">
         </a>
     </div>
-<!--//////////////////////////////////   CONTENDOR DEL LOGO CON ENLACE   //////////////////////////////////-->
-
-<!--//////////////////////////////////   SECCIÓN TITULO   //////////////////////////////////-->
+    
     <h1>Muestrario 3D | Testa Chile</h1>
     
     <div class="description">
@@ -120,9 +180,8 @@
         Haz click sobre el modelo de tú interés para poder interactuar con él. 
         Desde dispositivos móviles podrás ver los Modelos 3D en Realidad Aumentada.
     </div>
-<!--//////////////////////////////////   SECCIÓN TITULO  //////////////////////////////////-->
-
-<!--//////////////////////////////////   BOTONES REDES SOCIALES //////////////////////////////////-->
+    
+    <!-- Botones de redes sociales -->
     <div class="social-buttons">
         <button class="social-btn instagram" onclick="window.open('https://www.instagram.com/testa.cl/', '_blank')">
             Instagram
@@ -134,10 +193,9 @@
             WhatsApp
         </button>
     </div>
-<!--//////////////////////////////////   BOTONES REDES SOCIALES //////////////////////////////////-->
     
     <div class="catalog">
-<!--//////////////////////////////////   MODELO 1   //////////////////////////////////-->
+        <!-- Modelo 1 -->
         <div class="model-card">
             <model-viewer
                 src="GLB_Standqr01.glb"
@@ -145,20 +203,21 @@
                 auto-rotate
                 rotation-per-second="60deg"
                 ar
-                ar-modes="scene-viewer quick-look"
+                ar-modes="webxr scene-viewer quick-look"
                 camera-controls
                 shadow-intensity="1"
+                interaction-prompt="none"
+                xr-environment
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
             <h3 class="model-title">Stand QR Pequeño</h3>
             <p class="model-description">
-                <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Soporte acrílico de 3mm de espesor. Pieza única plegada con código QR y textos grabados.
+                <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Soporte acrílico de 3mm de espesor.
             </p>
         </div>
-<!--//////////////////////////////////   MODELO 1   //////////////////////////////////-->
         
-<!--//////////////////////////////////   MODELO 2   //////////////////////////////////-->
+        <!-- Modelo 2 -->
         <div class="model-card">
             <model-viewer
                 src="GLB_Standqr02.glb"
@@ -166,21 +225,21 @@
                 auto-rotate
                 rotation-per-second="60deg"
                 ar
-                ar-modes="scene-viewer quick-look"
+                ar-modes="webxr scene-viewer quick-look"
                 camera-controls
                 shadow-intensity="1"
+                interaction-prompt="none"
+                xr-environment
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
             <h3 class="model-title">Stand QR Mediano</h3>
             <p class="model-description">
-                <strong>Medidas: 16cm de alto, 8cm de ancho, 5cm de base</strong> Soporte de acrílico con Logo personalizado y código QR grabado. 
-                Pieza única plegada de acrílico de 3mm.
+                <strong>Medidas: 16cm de alto, 8cm de ancho, 5cm de base</strong> Soporte de acrílico con Logo personalizado.
             </p>
         </div>
-<!--//////////////////////////////////   MODELO 2   //////////////////////////////////-->
         
-<!--//////////////////////////////////   MODELO 3   //////////////////////////////////-->
+        <!-- Modelo 3 -->
         <div class="model-card">
             <model-viewer
                 src="GLB_Standqr03.glb"
@@ -188,21 +247,21 @@
                 auto-rotate
                 rotation-per-second="90deg"
                 ar
-                ar-modes="scene-viewer quick-look"
+                ar-modes="webxr scene-viewer quick-look"
                 camera-controls
                 shadow-intensity="1"
+                interaction-prompt="none"
+                xr-environment
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
             <h3 class="model-title">Exhibidor QR</h3>
             <p class="model-description">
-                <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Exhibidor de madera pino con logo personalizado en 
-                relieve, base y logos de redes sociales en acrílico.
+                <strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Exhibidor de madera pino con logo personalizado.
             </p>
         </div>
-<!--//////////////////////////////////   MODELO 3   //////////////////////////////////-->
-
-<!--//////////////////////////////////   MODELO 4   //////////////////////////////////-->
+        
+        <!-- Modelo 4 -->
         <div class="model-card">
             <model-viewer
                 src="GLB_PlantaSuculentaRoja.glb"
@@ -210,20 +269,33 @@
                 auto-rotate
                 rotation-per-second="60deg"
                 ar
-                ar-modes="scene-viewer quick-look"
+                ar-modes="webxr scene-viewer quick-look"
                 camera-controls
                 shadow-intensity="1"
+                interaction-prompt="none"
+                xr-environment
             >
                 <button slot="ar-button" class="ar-button">Ver en AR</button>
             </model-viewer>
             <h3 class="model-title">Letrero Personalizado</h3>
             <p class="model-description">
-                <strong>Medidas: según logo y preferencia del cliente</strong> 
-                Letrero personalizado, base de terciado con logo personalizado en relieve y a color.
+                <strong>Medidas personalizadas</strong> Base de terciado con logo en relieve y a color.
             </p>
         </div>
-<!--//////////////////////////////////   MODELO 4   //////////////////////////////////-->
-        
     </div>
+    
+    <!-- Footer -->
+    <div class="footer">Testa Chile 2025</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Configuración específica para iOS
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                document.querySelectorAll('model-viewer').forEach(viewer => {
+                    viewer.arModes = 'quick-look';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
