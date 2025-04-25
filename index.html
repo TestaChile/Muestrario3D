@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Muestrario 3D | Testa Chile</title>
+    <title>Lista de precios | Testa Chile</title>
     <!-- Polyfill para navegadores antiguos -->
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.8.0/webcomponents-loader.js"></script>
     <!-- Versión fija de model-viewer -->
@@ -249,10 +249,10 @@
         </a>
     </div>
     
-    <h1>MUESTRARIO 3D | TESTA CHILE</h1>
+    <h1>LISTA DE PRECIOS | TESTA CHILE</h1>
     
     <div class="description">
-        Bienvenido a nuestro <strong>Muestrario Interactivo.</strong> 
+        Bienvenido a nuestro <strong>Lista de precios interactiva.</strong> 
         Explora nuestros Modelos 3D en realidad aumentada. 
         Haz click sobre el modelo de tú interés para poder interactuar con él. 
         Desde dispositivos móviles podrás ver los Modelos 3D en Realidad Aumentada.
@@ -286,9 +286,18 @@
             models: [
                 {
                     id: 'stand-qr-pequeno',
-                    title: 'Stand QR Pequeño',
+                    title: 'Stand QR Armable',
+                    src: 'GLB_Standqrterciado.glb',
+                    description: '<strong>Medidas: 10cm de alto, 6cm de ancho, 5cm de base</strong> Soporte de terciado de 6mm de espesor. Logo y texto grabado en láser. Terminación laca.',
+                    arType: 'horizontal',
+                    arHint: '(Coloca en una superficie plana)',
+                    rotationSpeed: '90deg'
+                },
+                {
+                    id: 'stand-qr-pequeno',
+                    title: 'Stand QR Acrílico',
                     src: 'GLB_Standqr01.glb',
-                    description: '<strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Soporte acrílico de 3mm de espesor.',
+                    description: '<strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Soporte acrílico de 3mm de espesor. Logo y texto grabado en láser y pintado con acrílico.',
                     arType: 'horizontal',
                     arHint: '(Coloca en una superficie plana)',
                     rotationSpeed: '90deg'
