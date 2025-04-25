@@ -172,6 +172,39 @@
             color: #333;
             font-size: 18px;
         }
+
+        /* LISTA DE PRECIOS */
+        .price-list {
+            margin-top: 10px;
+            padding: 10px 0;
+            border-top: 1px dashed #ddd;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .price-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .price-list li {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .price-list li:last-child {
+            margin-bottom: 0;
+            color: #6e48aa; /* Color destacado para oferta al por mayor */
+            font-weight: bold;
+        }
+
+        .price-list strong {
+            color: #333;
+            font-weight: bold;
+        }
         
         /* LOGO */
         .logo-container {
@@ -238,6 +271,10 @@
                 font-size: 14px;
                 padding: 8px 12px;
             }
+
+            .price-list {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -281,7 +318,7 @@
     <div class="footer">Testa Chile 2025</div>
 
     <script>
-        // CONFIGURACIÓN - Modelos 3D
+        // CONFIGURACIÓN - Modelos 3D con precios
         const catalogConfig = {
             models: [
                 {
@@ -291,7 +328,12 @@
                     description: '<strong>Medidas: 10cm de alto, 6cm de ancho, 5cm de base</strong> Soporte de terciado de 6mm de espesor. Logo y texto grabado en láser. Terminación laca.',
                     arType: 'horizontal',
                     arHint: '(Coloca en una superficie plana)',
-                    rotationSpeed: '90deg'
+                    rotationSpeed: '90deg',
+                    prices: [
+                        { quantity: "1 unidad", price: "$5.990" },
+                        { quantity: "5+ unidades", price: "$4.990 c/u" },
+                        { quantity: "10+ unidades", price: "$3.990 c/u" }
+                    ]
                 },
                 {
                     id: 'stand-qr-pequeno',
@@ -300,7 +342,12 @@
                     description: '<strong>Medidas: 10cm de alto, 8cm de ancho, 5cm de base</strong> Soporte acrílico de 3mm de espesor. Logo y texto grabado en láser y pintado con acrílico.',
                     arType: 'horizontal',
                     arHint: '(Coloca en una superficie plana)',
-                    rotationSpeed: '90deg'
+                    rotationSpeed: '90deg',
+                    prices: [
+                        { quantity: "1 unidad", price: "$7.990" },
+                        { quantity: "5+ unidades", price: "$6.490 c/u" },
+                        { quantity: "10+ unidades", price: "$5.990 c/u" }
+                    ]
                 },
                 {
                     id: 'stand-qr-mediano',
@@ -309,7 +356,12 @@
                     description: '<strong>Medidas: 20cm de alto, 8cm de ancho, 5cm de base</strong> Soporte de acrílico con Logo y texto grabado.',
                     arType: 'horizontal',
                     arHint: '(Coloca en una superficie plana)',
-                    rotationSpeed: '90deg'
+                    rotationSpeed: '90deg',
+                    prices: [
+                        { quantity: "1 unidad", price: "$9.990" },
+                        { quantity: "3+ unidades", price: "$8.490 c/u" },
+                        { quantity: "6+ unidades", price: "$7.490 c/u" }
+                    ]
                 },
                 {
                     id: 'exhibidor-qr',
@@ -318,7 +370,10 @@
                     description: '<strong>Próximamente modelo 3D</strong> ¡Estamos trabajando!',
                     arType: 'horizontal',
                     arHint: '(Coloca en una superficie plana)',
-                    rotationSpeed: '90deg'
+                    rotationSpeed: '90deg',
+                    prices: [
+                        { quantity: "Consultar", price: "Personalizado" }
+                    ]
                 },
                 {
                     id: 'letrero-personalizado',
@@ -327,9 +382,12 @@
                     description: '<strong>Medidas 30x30cm</strong> Base de terciado con logo en relieve y a color.',
                     arType: 'vertical',
                     arHint: '(Coloca en una pared)',
-                    rotationSpeed: '90deg'
+                    rotationSpeed: '90deg',
+                    prices: [
+                        { quantity: "1 unidad", price: "$12.990" },
+                        { quantity: "2+ unidades", price: "$10.990 c/u" }
+                    ]
                 }
-                // Para agregar más modelos, simplemente añade nuevos objetos aquí
             ]
         };
 
@@ -364,6 +422,13 @@
                         ${model.description}
                     </div>
                     <h3 class="model-title">${model.title}</h3>
+                    <div class="price-list">
+                        <ul>
+                            ${model.prices.map(item => `
+                                <li><strong>${item.quantity}:</strong> ${item.price}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
                 `;
                 
                 catalogContainer.appendChild(card);
